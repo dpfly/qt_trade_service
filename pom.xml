@@ -134,7 +134,7 @@
 		<java_target_version>1.6</java_target_version>
 		<file_encoding>UTF-8</file_encoding>
 
-		<maven_source_plugin_version>2.1.1</maven_source_plugin_version>
+		<maven_source_plugin_version>3.0.1</maven_source_plugin_version>
 		<maven_jar_plugin_version>2.3.2</maven_jar_plugin_version>
 		<maven_war_plugin_version>2.1.1</maven_war_plugin_version>
 		<maven_install_plugin_version>2.3.1</maven_install_plugin_version>
@@ -463,6 +463,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
+                <version>${maven_source_plugin_version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>

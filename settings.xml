@@ -1,5 +1,5 @@
 <settings>
-<localRepository>/Users/ethan/dubbobox-demo-workspace/maven</localRepository>
+<localRepository>/Users/ethan/Documents/github/maven</localRepository>
 <pluginGroups>
 	<pluginGroup>org.mortbay.jetty</pluginGroup>	
 	<pluginGroup>com.hundsun.scm.maven.plugins</pluginGroup> 
