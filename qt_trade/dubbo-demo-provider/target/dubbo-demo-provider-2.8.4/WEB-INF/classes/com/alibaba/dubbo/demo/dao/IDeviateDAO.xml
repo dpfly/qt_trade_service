@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.dubbo.demo.dao.IDeviateDAO">
+	<resultMap id="BaseResultMap" type="com.alibaba.dubbo.demo.Entity.Deviate">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="stock_code" property="stockCode" jdbcType="VARCHAR" />
+		<result column="stock_name" property="stockName" jdbcType="VARCHAR" />
+		<result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="floor_startDate" property="floorStartDate"
+			jdbcType="DATE" />
+		<result column="floor_startTime" property="floorStartTime"
+			jdbcType="TIME" />
+		<result column="floor_startPrice" property="floorStartPrice"
+			jdbcType="DECIMAL" />
+		<result column="floor_endDate" property="floorEndDate"
+			jdbcType="DATE" />
+		<result column="floor_endTime" property="floorEndTime"
+			jdbcType="TIME" />
+		<result column="floor_endPrice" property="floorEndPrice"
+			jdbcType="DECIMAL" />
+		<result column="differenceAmount" property="differenceAmount"
+			jdbcType="DECIMAL" />
+		<result column="differencePercent" property="differencePercent"
+			jdbcType="DECIMAL" />
+		<result column="status" property="status" jdbcType="TINYINT" />
+		<result column="codeType" property="codeType" jdbcType="VARCHAR" />
+		<result column="macdInterval" property="macdInterval" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="user_Column_List">
+
+		id,stock_code,stock_name,floor_startDate,floor_startTime,floor_startPrice,
+		floor_endDate,floor_endTime,floor_endPrice,
+		status,codeType,createTime,macdInterval
+
+	</sql>
+
+
+	<select id="getDeviates" resultMap="BaseResultMap">
+		select
+		<include refid="user_Column_List" />
+		from qt_deviate order by id desc 
+	</select>
+
+</mapper>

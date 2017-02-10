@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.dubbo.demo.dao.ILadderDAO">
+	<resultMap id="BaseResultMap" type="com.alibaba.dubbo.demo.Entity.LadderEntity">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="codeType" property="codeType" jdbcType="VARCHAR" />
+		<result column="ladderDate" property="ladderDate"
+			jdbcType="DATE" />
+		<result column="currentPrice" property="currentPrice"
+			jdbcType="DECIMAL" />
+		<result column="todayIncrease" property="todayIncrease"
+			jdbcType="DECIMAL" />
+		<result column="smallDays" property="smallDays"
+			jdbcType="INTEGER" />
+			<result column="isNew" property="isNew" jdbcType="BOOLEAN" />
+	</resultMap>
+	<sql id="ladder_Column_List">
+
+		id,code,name,codeType,ladderDate,currentPrice,todayIncrease,
+		smallDays,isNew
+
+	</sql>
+
+
+	<select id="getLadders" resultMap="BaseResultMap">
+		select
+		<include refid="ladder_Column_List" />
+		from qt_ladder order by id desc 
+	</select>
+
+</mapper>

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Built-By: ethan
+Build-Jdk: 1.8.0_77
+Specification-Title: dubbo-demo-api
+Specification-Version: 2.8.4
+Specification-Vendor: Alibaba
+Implementation-Title: dubbo-demo-api
+Implementation-Version: 2.8.4
+Implementation-Vendor-Id: com.alibaba
+Implementation-Vendor: Alibaba
+Created-By: Maven Integration for Eclipse
+

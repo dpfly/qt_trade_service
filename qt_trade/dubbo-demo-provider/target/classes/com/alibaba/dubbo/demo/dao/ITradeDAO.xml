@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.dubbo.demo.dao.ITradeDAO">
+	<resultMap id="BaseResultMap" type="com.alibaba.dubbo.demo.Entity.TradeEntity">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="codeType" property="codeType" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="tradeTime" property="tradeDate" jdbcType="DATE" />
+			<result column="tradeTime" property="tradeTime" jdbcType="TIME" />
+		<result column="tradePrice" property="tradePrice" jdbcType="DECIMAL" />
+		<result column="tradeCount" property="tradeCount" jdbcType="INTEGER" />
+		<result column="tradeReason" property="tradeReason" jdbcType="VARCHAR" />
+		<result column="macdInterval" property="macdInterval" jdbcType="INTEGER" />
+ 		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="trade_Column_List">
+		id,code,codeType,name,tradeTime,tradePrice,tradeCount,tradeReason,
+		macdInterval,status
+	</sql>
+
+	<select id="getTrades" resultMap="BaseResultMap">
+		select
+		<include refid="trade_Column_List" />
+		from qt_trade where status!=0
+	</select>
+
+</mapper>
