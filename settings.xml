@@ -1,0 +1,82 @@
+<settings>
+<localRepository>/Users/ethan/dubbobox-demo-workspace/maven</localRepository>
+<pluginGroups>
+	<pluginGroup>org.mortbay.jetty</pluginGroup>	
+	<pluginGroup>com.hundsun.scm.maven.plugins</pluginGroup> 
+	<pluginGroup>org.apache.maven.plugins</pluginGroup> 
+	<pluginGroup>org.codehaus.mojo</pluginGroup>
+</pluginGroups>
+<!--This sends everything else to /public -->
+<mirrors>
+    <mirror> 
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://192.168.181.183:8081/repository/maven-public/</url>
+    </mirror>
+</mirrors>
+ <servers>
+	  <server>
+		   <id>releases</id>
+		    <username>admin</username>
+		   <password>admin123</password>
+		 </server>
+		 <server>
+		   <id>nexus</id>
+		   <username>admin</username>
+		   <password>admin123</password>
+		 </server>
+		 <server>
+		   <id>snapshots</id>
+		    <username>admin</username>
+		   <password>admin123</password>
+		 </server>
+</servers>	
+ 
+  <profiles>
+    <profile>
+		<id>nexus</id>
+		<distributionManagement>
+			<repository>
+				<id>releases</id>
+				<url>http://192.168.181.183:8081/repository/maven-releases/</url>
+			</repository>
+			<snapshotRepository>
+				<id>snapshots</id>
+				<url>http://192.168.181.183:8081/repository/maven-snapshots/</url>
+			</snapshotRepository>
+		</distributionManagement>
+		<repositories>
+			<repository>
+				<id>snapshots</id>
+				<url>http://192.168.181.183:8081/repository/maven-snapshots/</url>
+				<releases>
+					<enabled>false</enabled>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+				</snapshots>
+			</repository>
+		</repositories>
+        <pluginRepositories>
+			<pluginRepository>
+			  <id>snapshots</id>
+			  <url>http://192.168.181.183:8081/repository/maven-snapshots/</url>
+			  <releases><enabled>true</enabled></releases>
+			  <snapshots><enabled>true</enabled></snapshots>
+			</pluginRepository>
+		</pluginRepositories>
+    </profile>
+	<profile>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>
+		<properties>
+			<environment.type>dev</environment.type>
+		</properties>
+	</profile>
+  </profiles>
+  <activeProfiles>
+    <!--make the profile active all the time -->
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>	
+</settings>
